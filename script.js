@@ -7,8 +7,8 @@ const content=document.querySelectorAll(".tab-content");
 
 
 
-//without using any data-bs in html and only use same class name then doing this way
-btn.forEach((element,index)=>{
+//using data-bs in html and use same class name then doing this way
+btn.forEach((element)=>{
     element.addEventListener("click",()=>{
         
         //firstly this section remove active class from each button section 
@@ -25,7 +25,10 @@ btn.forEach((element,index)=>{
 
         //when i clicked a button then active class show of that button which i clicked
         element.classList.add("active");
-        //when i clicked a button then active class show of that button which i clicked and then the specific index number apply the active class that button which i clicked.
-        content[index].classList.add("active");
+        
+        const tabIndex=element.getAttribute("data-bs");
+        // console.log(tabIndex);
+        document.getElementById(tabIndex).classList.add("active")
+        
     })
 })
